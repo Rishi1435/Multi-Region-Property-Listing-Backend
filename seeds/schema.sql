@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS properties (
+    id BIGINT PRIMARY KEY,
+    price DECIMAL NOT NULL,
+    bedrooms INTEGER,
+    bathrooms INTEGER,
+    region_origin VARCHAR(2) NOT NULL,
+    version INTEGER NOT NULL DEFAULT 1,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS idempotency_keys (
+    key VARCHAR(255) PRIMARY KEY,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
